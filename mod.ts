@@ -17,7 +17,6 @@ export const random = (length: number) => {
 
 export const shuffle = (key: number[]) => (input: number) => {
     const inputLength = input.toString(2).length
-    console.log(inputLength)
     return Number(key.reduce(
         (acc, to, from) => 
             acc += 
