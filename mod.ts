@@ -7,7 +7,7 @@ const randNumGen: (used: number[], length: number) => number
         return randNum
     }
 
-const random = (length: number) => {
+export const random = (length: number) => {
     const result: number[] = []
     for(let i=0;i<length;i++){
         result.push(randNumGen(result, length))
@@ -15,7 +15,7 @@ const random = (length: number) => {
     return result
 }
 
-const shuffle = (key: number[]) => (input: number) => {
+export const shuffle = (key: number[]) => (input: number) => {
     const inputLength = input.toString(2).length
     console.log(inputLength)
     return key.reduce(
@@ -25,5 +25,3 @@ const shuffle = (key: number[]) => (input: number) => {
         0n
     )
 }
-
-console.log(shuffle([1,2,0])(0b101).toString(2)) // 110
