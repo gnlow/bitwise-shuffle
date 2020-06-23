@@ -1,3 +1,20 @@
+const randNumGen: (used: number[], length: number) => number 
+    = (used: number[], length: number) => {
+        const randNum = Math.floor(Math.random() * length)
+        if(used.includes(randNum)){
+            return randNumGen(used, length)
+        }
+        return randNum
+    }
+
+const random = (length: number) => {
+    const result: number[] = []
+    for(let i=0;i<length;i++){
+        result.push(randNumGen(result, length))
+    }
+    return result
+}
+
 const shuffle = (key: number[]) => (input: number) => {
     const inputLength = input.toString(2).length
     console.log(inputLength)
