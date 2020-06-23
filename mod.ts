@@ -18,10 +18,10 @@ export const random = (length: number) => {
 export const shuffle = (key: number[]) => (input: number) => {
     const inputLength = input.toString(2).length
     console.log(inputLength)
-    return key.reduce(
+    return Number(key.reduce(
         (acc, to, from) => 
             acc += 
                 ( BigInt(input) & 0b1n << BigInt(inputLength - from - 1) ) >> BigInt(to - from), 
         0n
-    )
+    ))
 }
