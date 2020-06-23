@@ -3,9 +3,10 @@ const shuffle = (key: number[]) => (input: number) => {
     console.log(inputLength)
     return key.reduce(
         (acc, to, from) => 
-            acc += input & 0b1 << (inputLength - from - 1) , 
-        0
+            acc += 
+                ( BigInt(input) & 0b1n << BigInt(inputLength - from - 1) ) >> BigInt(to - from), 
+        0n
     )
 }
 
-console.log(shuffle(Array(7).fill(void 0))(123))
+console.log(shuffle([1,2,0])(0b101).toString(2)) // 110
