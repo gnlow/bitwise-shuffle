@@ -24,3 +24,15 @@ export const shuffle = (key: number[]) => (input: number) => {
         0n
     ))
 }
+
+const unshuffleKey = (key: number[]) => {
+    const result = Array(key.length)
+    key.forEach( (to, from) => {
+        result[to] = from
+    })
+    return result
+}
+
+export const unshuffle = (key: number[]) => (input: number) => {
+    return shuffle(unshuffleKey(key))(input)
+}
