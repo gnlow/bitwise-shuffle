@@ -16,11 +16,10 @@ export const random = (length: number) => {
 }
 
 export const shuffle = (key: number[]) => (input: number) => {
-    const inputLength = input.toString(2).length
     return Number(key.reduce(
         (acc, to, from) => 
             acc += 
-                ( BigInt(input) & 0b1n << BigInt(inputLength - from - 1) ) >> BigInt(to - from), 
+                ( BigInt(input) & 0b1n << BigInt(key.length - from-1) ) >> BigInt(to - from), 
         0n
     ))
 }
